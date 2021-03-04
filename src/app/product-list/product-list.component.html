@@ -8,17 +8,22 @@
   </h3>
 
   <p *ngIf="product.description">
-    Description: {{ product.description }}
+    Descripción: {{ product.description }}
   </p>
 
-  <button (click)="share()">
-    Share
-  </button>
+  <p>
+    Precio: {{ product.price ? product.price.toFixed(2) + " €" : 'No disponible
+    precio' }}
+  </p>
 
-<app-product-alerts
-  [product]="product" 
-  (notify)="onNotify()">
-</app-product-alerts>
+  <div class="row">
+    <button type="button" class="btn" (click)="share()">
+      Share
+    </button>
+
+    <app-product-alerts [product]="product" (notify)="onNotify()">
+    </app-product-alerts>
+  </div>
 </div>
 
 <!-- 
